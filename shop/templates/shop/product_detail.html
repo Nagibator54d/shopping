@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-gray-100 dark:bg-gray-600 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row -mx-4">
+            <div class="md:flex-1 px-4">
+                <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                    <img class="w-full h-full object-cover" src="{{ product.image.url }}" alt="Product Image">
+                </div>
+            <div class="md:flex-1 px-4">
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Product Name</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">{{ product.title }}</p>
+                <div class="flex mb-4">
+                    <div class="mr-4">
+                        <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
+                        <span class="text-gray-600 dark:text-gray-300">{{ product.price }}</span>
+                    </div>
+                    <div>
+                        <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
+                        <span class="text-gray-600 dark:text-gray-300">{{ product.available }}</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">{{ product.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <style>
+        body{
+            background-color: #76453B;
+            color: #fff;
+        }
+
+        .container{
+            margin-top: 80px;
+            margin-left: 400px;
+            width: 800px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0.3);
+            background-color: #2B2A4C;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 100vh; */
+        }
+
+        .container h2{
+            text-align: center;
+        }
+
+        .content img{
+            width: 450px;
+            height: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 1, 0.8);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ product.title }}</h2>
+        <div class="content">
+            {% block content %}
+                <img src="{{ product.image.url }}" alt="">
+            {% endblock %}
+        </div>
+        <p>{{ product.description }}</p>
+    </div>
+
+</body>
+</html>

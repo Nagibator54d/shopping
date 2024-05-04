@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #EADBC8;
+        }
+
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container{
+            width: 500px;
+            padding: 40px 50px;
+            background-color: #3C5B6F;
+            border-radius: 15px;
+        }
+
+        .container h2{
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 25px;
+            color: #Fff;
+            text-align: center;
+        }
+
+        .container .btn{
+            text-align: center;
+        }
+
+        .container button{
+            margin: 10px;
+            width: 50%;
+            padding: 10px 12px;
+            font-weight: 700;
+            font-size: 15px;
+            background-color: #1679AB;
+            color: #Fff;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease-in;
+        }
+        .container button:hover{
+            background-color: #4793AF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <h2>Login</h2>
+            <form method="POST"">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+            <div class="btn">
+                <button type="submit">SignUp</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

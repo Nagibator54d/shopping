@@ -1,0 +1,83 @@
+<style>
+    body{
+        /* padding: 15px 80px; */
+        background-color: #50727B;
+        color: #fff;
+        height: 110vh;
+    }
+
+    .title{
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+        font-size: 35px;
+        font-style: italic;
+        color: #BEADFA;
+    }
+
+    .title span{
+        color: #F4CE14;
+        font-weight: bolder;
+    }
+
+    .content{
+        grid-area: menu;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 25px;
+
+    }
+
+    .item{
+        padding: 10px 8px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.4);
+        background-color: #436850;
+    }
+
+    .img{
+        width: 200px;
+        height: 180px;
+    }
+</style>
+
+
+
+
+
+
+
+    {% block title %}
+        <h2 class="title"><span>Shop</span></h2>
+    {% endblock  %}
+    <div class="content">
+    {% block content %}
+        {% for prod in products %}
+        <div class="item">
+            <div class="info">
+                <h3>{{ prod.title }}</h3>
+                <a href="{% url 'product_detail' prod.pk %}">
+                    <img src="{{ prod.image.url }}" class="img" alt="foto">
+                </a>
+                <p>{{ prod.price }}</p> 
+                <p>{{ prod.description }}</p>
+            </div>
+        </div>
+         
+        {% endfor %}
+    {% endblock %}
+    </div>
+
+
+
+
+
+
+
+
+   

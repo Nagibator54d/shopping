@@ -1,0 +1,171 @@
+<nav class="bg-gray-900 text-white py-5 px-4 flex items-center justify-between">
+    <a class="font-bold text-xl tracking-tight" href="#">My Site</a>
+    <div class="relative inline-block text-left">
+        <div class="group">
+            <button type="button"
+                class="inline-flex justify-center items-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+                Category
+                <!-- Dropdown arrow -->
+                <svg class="w-4 h-4 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z" />
+                </svg>
+            </button>
+    
+            <!-- Dropdown menu -->
+            <div
+                class="absolute left-0 w-40 mt-1 origin-top-left bg-white divide-y divide-gray-100 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+                <div class="py-1">
+                    {% for category in categories %}
+                    <a href="{{ category.get_absolute_url }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ category.title }}</a>
+                    <hr>
+                    {% endfor %}
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center">
+        <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" href="#">Home</a>
+        <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" href="#">About</a>
+        {% if user.is_staff %}
+        <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" href="{% url 'create' %}">Create</a>
+        {% endif %}
+    </div>
+    <a href="{% url 'login' %}">
+    <button style="margin-left: 700px;"
+         class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
+    Log In
+    </button>
+    </a>
+    <a href="{% url 'signup' %}">
+        <button
+				class="border border-teal-500 bg-teal-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-teal-600 focus:outline-none focus:shadow-outline">
+				Sign Up
+		</button>
+    </a>
+
+</nav>
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 1000vh;
+        }
+
+        .container{
+            position: relative;
+            margin-bottom: 30px;
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 150px;
+            top: 0;
+            left: 0;
+            background-color: #424874;
+        }
+
+        .container .title h2{
+            font-weight: 700;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .container a{
+            padding: 7px 10px;
+            color: #fff;
+            background-color: #CEAB93;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .container .links, .registration{
+            display: flex;
+            gap: 30px;
+        }  
+
+        .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="title"><h2>Shop</h2></div>
+            <div class="links">
+                <a href="{% url 'product_list' %}">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Category</button>
+                    <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    </div>
+                </div>               
+            </div>
+            <div class="registration">
+                <a href="{% url 'signup' %}">Sign up</a>
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </nav>
+
+
+</body>
+</html> -->
